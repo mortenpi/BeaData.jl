@@ -1,9 +1,0 @@
-*.jl.cov
-*.jl.*.cov
-*.jl.mem
-
-*.tex
-*.pdf
-
-docs/build/
-docs/site/
