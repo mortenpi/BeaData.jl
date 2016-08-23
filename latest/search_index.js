@@ -125,7 +125,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.BeaNipaTable",
     "category": "Type",
-    "text": "A NIPA table with data and metadata returned from a get_nipa_table call.\n\n\n\n"
+    "text": "A NIPA table with data and metadata returned from a get_nipa_table call.\n\nFields\n\ntablenum::AbstractString\n: NIPA table number\ntableid::Int\n: API TableID\ntabledesc::AbstractString\n: The table title (e.g., \"Real Gross Domestic Product,  Chained Dollars\" for Table 1.1.6)\nlinedesc::OrderedDict\n: Dictionary of descriptions for each line of the table\ntablenotes::Any\n: Table notes, if any\nfrequency::AbstractString\n: \"A\" or \"Q\"\nstartyear::Int\nendyear::Int\ndf::DataFrame\n: the data values from the table; column names are the line numbers from the table, the first column contains the date for each observation in Julia \nDate\n format\n\n\n\n"
 },
 
 {
@@ -133,7 +133,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.get_nipa_table",
     "category": "Method",
-    "text": "    get_nipa_table(b::Bea, TableID::Int, frequency::AbstractString,\n        startyear::Int, endyear::Int)\n\nRequest a NIPA table from the BEA data API.\n\nArguments\n\nb\n: a BEA API connection\nTableID\n: the integer Table ID for the desired NIPA table\nfrequency\n: \"A\" for annual, \"Q\" for quarerly\nstartyear\n: first year of data requested, in YYYY format\nendyear\n: last year of data requested, in YYYY format\n\nReturns\n\nAn object of type \nBeaNipaTable\n\n\n\n"
+    "text": "get_nipa_table(b::Bea, TableID::Int, frequency::AbstractString,\n    startyear::Int, endyear::Int)\n\nRequest a NIPA table from the BEA data API.\n\nArguments\n\nb\n: a BEA API connection\nTableID\n: the integer Table ID for the desired NIPA table\nfrequency\n: \"A\" for annual, \"Q\" for quarerly\nstartyear\n: first year of data requested, in YYYY format\nendyear\n: last year of data requested, in YYYY format\n\nReturns\n\nAn object of type \nBeaNipaTable\n\n\n\n"
 },
 
 {
@@ -141,7 +141,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.nipa_metadata_tex",
     "category": "Method",
-    "text": "`nipa_metadata_tex(b::Bea)`\n\nArguments\n\nb\n: a BEA API connection\n\nReturns\n\nA .tex file with the parmater list for the NIPA dataset and parameter values for the TableID parameter.  The file is written to the curent working directory.\n\n\n\n"
+    "text": "nipa_metadata_tex(b::Bea)\n\nArguments\n\nb\n: a BEA API connection\n\nReturns\n\nA .tex file with the parmater list for the NIPA dataset and parameter values for the TableID parameter.  The file is written to the curent working directory.\n\n\n\n"
 },
 
 {
@@ -149,7 +149,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.table_metadata_tex",
     "category": "Method",
-    "text": "`table_metadata_tex(bnt::BeaNipaTable)`\n\nArguments\n\nbnt\n: a BEA NIPA Table object\n\nReturns\n\nA .tex file with metadata (table name and description, line numbers and descriptions, and table notes) for a NIPA table.  The file is written to the curent working directory.\n\n\n\n"
+    "text": "table_metadata_tex(bnt::BeaNipaTable)\n\nArguments\n\nbnt\n: a BEA NIPA Table object\n\nReturns\n\nA .tex file with metadata (table name and description, line numbers and descriptions, and table notes) for a NIPA table.  The file is written to the curent working directory.\n\n\n\n"
 },
 
 {
