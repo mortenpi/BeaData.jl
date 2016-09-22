@@ -77,7 +77,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Guide",
     "title": "Retrieve a table",
     "category": "section",
-    "text": "Download a NIPA table using the get_nipa_table method:   mytable = get_nipa_table(b::Bea, TableID::Int, frequency::AbstractString,\n        startyear::Int, endyear::Int)Arguments:b\n: a BEA API connection\nTableID\n: the integer Table ID for the desired NIPA table (see \"NIPA Table IDs\" below)\nfrequency\n: \"A\" for annual, \"Q\" for quarerly\nstartyear\n: first year of data requested, in YYYY format\nendyear\n: last year of data requested, in YYYY formatThe method returns an object of type BeaNipaTable, with the following fields:tablenum\n: Table number\ntableid\n: Table ID\ntabledesc\n: Table description\nlinedesc\n: an \nOrderedDict\n with table line numbers and the corresponding variable descriptions\ntablenotes\n: an \nOrderedDict\n with any notes to the table\nfrequency\nstartyear\nendyear\ndf\n: a \nDataFrame\n containing the data values; column names are the line numbers from the table (see \"NIPA Table line numbers\" below)"
+    "text": "Download a NIPA table using the get_nipa_table method:   mytable = get_nipa_table(b::Bea, TableID::Int, frequency::AbstractString,\n        startyear::Int, endyear::Int)Arguments:b: a Bea connection\nTableID: the integer Table ID for the desired NIPA table (see \"NIPA Table IDs\" below)\nfrequency: \"A\" for annual, \"Q\" for quarerly\nstartyear: first year of data requested, in YYYY format\nendyear: last year of data requested, in YYYY formatThe method returns an object of type BeaNipaTable, with the following fields:tablenum: Table number\ntableid: Table ID\ntabledesc: Table description\nlinedesc: an OrderedDict with table line numbers and the corresponding variable descriptions\ntablenotes: an OrderedDict with any notes to the table\nfrequency\nstartyear\nendyear\ndf: a DataFrame containing the data values; column names are the line numbers from the table (see \"NIPA Table line numbers\" below)"
 },
 
 {
@@ -93,7 +93,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Guide",
     "title": "NIPA Table line numbers",
     "category": "section",
-    "text": "The data frame returned by a call to the API has dates in the first column and the table data in the remaining columns.  Data columns are named for the corresponding line numbers of the NIPA table.  Once a table has been retrieved, the function    table_metadata_tex(bnt::BeaNipaTable)will write a .tex file to the current working directory that contains the table name and description, line numbers and descriptions, and table notes."
+    "text": "The DataFrame returned by a call to the API has dates in the first column and the table data in the remaining columns.  Data columns are named for the corresponding line numbers of the NIPA table (e.g., :line1, :line2, etc.).  Once a table has been retrieved, the function    table_metadata_tex(bnt::BeaNipaTable)will write a .tex file to the current working directory that contains the table name and description, line numbers and descriptions, and table notes."
 },
 
 {
@@ -117,7 +117,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.Bea",
     "category": "Type",
-    "text": "A connection to the U.S. Bureau of Economic Analysis (BEA) Data API.\n\nConstructors\n\nBea()\nBea(key::AbstractString)\n\nArguments\n\nkey\n: Registration key provided by the BEA.\n\nA valid registration key is \nrequired\n to retrieve data from the BEA's API.   A key can be obtained by registering at the BEA website.\n\nA default API key can be specified in a ~/.beadatarc file.\n\nMethods\n\napi_url(b::Bls)\n: Get the base URL used to connect to the server\napi_key(b::Bls)\n: Get the API key\n\n\n\n"
+    "text": "type Bea\n\nA connection to the U.S. Bureau of Economic Analysis (BEA) Data API.\n\nConstructors\n\nBea()\nBea(key::AbstractString)\n\nArguments\n\nkey: Registration key provided by the BEA.\n\nA valid registration key is required to retrieve data from the BEA's API.  A key can be obtained by registering at the BEA website.\n\nA default API key can be specified in a ~/.beadatarc file.\n\nFields\n\nurl\nkey\ndataset\n\n\n\n"
 },
 
 {
@@ -125,7 +125,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.BeaNipaTable",
     "category": "Type",
-    "text": "A NIPA table with data and metadata returned from a get_nipa_table call.\n\nFields\n\ntablenum::AbstractString\n: NIPA table number\ntableid::Int\n: API TableID\ntabledesc::AbstractString\n: The table title (e.g., \"Real Gross Domestic Product,  Chained Dollars\" for Table 1.1.6)\nlinedesc::OrderedDict\n: Dictionary of descriptions for each line of the table\ntablenotes::Any\n: Table notes, if any\nfrequency::AbstractString\n: \"A\" or \"Q\"\nstartyear::Int\nendyear::Int\ndf::DataFrame\n: the data values from the table; column names are the line numbers from the table, the first column contains the date for each observation in Julia \nDate\n format\n\n\n\n"
+    "text": "type BeaNipaTable\n\nA NIPA table with data and metadata returned from a get_nipa_table call.\n\nFields\n\ntablenum\nNIPA table number\ntableid\nAPI TableID\ntabledesc\nThe table title (e.g., 'Real Gross Domestic Product, Chained Dollars' for Table 1.1.6)\nlinedesc\nOrderedDict of descriptions for each line of the table\ntablenotes\nTable notes, if any\nfrequency\nstartyear\nendyear\ndf\nDataFrame containing the data values from the table; column names are the line numbers from the table, the first column contains the date for each observation in Julia Date format\n\n\n\n"
 },
 
 {
@@ -133,7 +133,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.get_nipa_table",
     "category": "Method",
-    "text": "get_nipa_table(b::Bea, TableID::Int, frequency::AbstractString,\n    startyear::Int, endyear::Int)\n\nRequest a NIPA table from the BEA data API.\n\nArguments\n\nb\n: a BEA API connection\nTableID\n: the integer Table ID for the desired NIPA table\nfrequency\n: \"A\" for annual, \"Q\" for quarerly\nstartyear\n: first year of data requested, in YYYY format\nendyear\n: last year of data requested, in YYYY format\n\nReturns\n\nAn object of type \nBeaNipaTable\n\n\n\n"
+    "text": "get_nipa_table(b, TableID, frequency, startyear, endyear)\n\n\nRequest a NIPA table from the BEA data API and return an object of type BeaNipaTable.\n\nArguments\n\nb – a Bea connection\nTableID – the integer Table ID for the desired NIPA table\nfrequency – \"A\" for annual, \"Q\" for quarerly\nstartyear – first year of data requested, in YYYY format\nendyear – last year of data requested, in YYYY format\n\n\n\n"
 },
 
 {
@@ -141,7 +141,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.nipa_metadata_tex",
     "category": "Method",
-    "text": "nipa_metadata_tex(b::Bea)\n\nArguments\n\nb\n: a BEA API connection\n\nReturns\n\nA .tex file with the parmater list for the NIPA dataset and parameter values for the TableID parameter.  The file is written to the curent working directory.\n\n\n\n"
+    "text": "nipa_metadata_tex(b)\n\n\nWrite, to the current working directory, a .tex file with the parmater list for the NIPA dataset and parameter values for the TableID parameter.\n\nArguments\n\nb – a Bea connection\n\n\n\n"
 },
 
 {
@@ -149,7 +149,15 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.table_metadata_tex",
     "category": "Method",
-    "text": "table_metadata_tex(bnt::BeaNipaTable)\n\nArguments\n\nbnt\n: a BEA NIPA Table object\n\nReturns\n\nA .tex file with metadata (table name and description, line numbers and descriptions, and table notes) for a NIPA table.  The file is written to the curent working directory.\n\n\n\n"
+    "text": "table_metadata_tex(bnt)\n\n\nWrite, to the current working directory, a .tex file with metadata (table name and description, line numbers and descriptions, and table notes) for the NIPA table contained in bnt.\n\nArguments\n\nbnt – a BeaNipaTable object\n\n\n\n"
+},
+
+{
+    "location": "lib/public.html#BeaData.parse_data_dict-Tuple{Dict}",
+    "page": "Commands",
+    "title": "BeaData.parse_data_dict",
+    "category": "Method",
+    "text": "parse_data_dict(dict)\n\n\nExtract information for a single observation and return as a tuple.  (Internal method for get_nipa_table.)\n\n\n\n"
 },
 
 {
