@@ -125,7 +125,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.BeaNipaTable",
     "category": "Type",
-    "text": "type BeaNipaTable\n\nA NIPA table with data and metadata returned from a get_nipa_table call.\n\nFields\n\ntablenum\nNIPA table number\ntableid\nAPI TableID\ntabledesc\nThe table title (e.g., 'Real Gross Domestic Product, Chained Dollars' for Table 1.1.6)\nlinedesc\nOrderedDict of descriptions for each line of the table\ntablenotes\nTable notes, if any\nfrequency\nstartyear\nendyear\ndf\nDataFrame containing the data values from the table; column names are the line numbers from the table, the first column contains the date for each observation in Julia Date format\n\n\n\n"
+    "text": "type BeaNipaTable\n\nA NIPA table with data and metadata returned from a get_nipa_table call.\n\nFields\n\ntablenum - NIPA table number\ntableid - API TableID\ntabledesc - The table title (e.g., 'Real Gross Domestic Product, Chained Dollars' for Table 1.1.6)\nlinedesc - OrderedDict of descriptions for each line of the table\ntablenotes - Table notes, if any\nfrequency\nstartyear\nendyear\ndf - DataFrame containing the data values from the table; column names are the line numbers from the table, the first column contains the date for each observation in Julia Date format\n\n\n\n"
 },
 
 {
