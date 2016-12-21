@@ -129,6 +129,22 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "lib/public.html#BeaData.get_bea_datasets-Tuple{BeaData.Bea}",
+    "page": "Commands",
+    "title": "BeaData.get_bea_datasets",
+    "category": "Method",
+    "text": "get_bea_datasets(b)\n\n\nReturn, in a DataFrame, a list of IDs and descriptions for datasets accessible from the BEA data API.\n\nArguments\n\nb – a Bea connection\n\n\n\n"
+},
+
+{
+    "location": "lib/public.html#BeaData.get_bea_parameterlist-Tuple{BeaData.Bea,String}",
+    "page": "Commands",
+    "title": "BeaData.get_bea_parameterlist",
+    "category": "Method",
+    "text": "get_bea_parameterlist(b, dataset)\n\n\nReturn, in a DataFrame, a list of parameter IDs and descriptions for dataset.\n\nArguments\n\nb – a Bea connection\ndataset – String indicating the dataset ID.\n\n\n\n"
+},
+
+{
     "location": "lib/public.html#BeaData.get_nipa_table-Tuple{BeaData.Bea,Int64,AbstractString,Int64,Int64}",
     "page": "Commands",
     "title": "BeaData.get_nipa_table",
