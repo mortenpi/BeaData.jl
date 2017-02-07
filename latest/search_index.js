@@ -141,7 +141,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.get_bea_parameterlist",
     "category": "Method",
-    "text": "get_bea_parameterlist(b, dataset)\n\n\nReturn, in a DataFrame, a list of parameter IDs and descriptions for dataset.\n\nArguments\n\nb – a Bea connection\ndataset – String indicating the dataset ID.\n\n\n\n"
+    "text": "get_bea_parameterlist(b, dataset)\n\n\nReturn, in a DataFrame, a list of parameters for dataset.\n\nArguments\n\nb – a Bea connection\ndataset – String indicating the dataset ID.\n\nReturns\n\nA DataFrame listing the following:\n\nParameter ID\nParmameter description\nrequired – 1 for yes, 0 for no\ndefault_value – empty if none\n\n\n\n"
 },
 
 {
