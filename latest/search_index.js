@@ -33,14 +33,6 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "index.html#Known-Issue-1",
-    "page": "Home",
-    "title": "Known Issue",
-    "category": "section",
-    "text": "All requests by BeaData.jl to the BEA API currently throw an HTTP Parser Exception, though this does not prevent the requested query from being completed successfully as long as valid arguments are provided to the functions.  This is not a client-side issue, caused instead by an extra space character returned by the BEA server's response (thanks to  @quinnj - Jacob Quinn - for figuring this out).  This will be fixed in a future update."
-},
-
-{
     "location": "index.html#Index-1",
     "page": "Home",
     "title": "Index",
@@ -133,7 +125,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.get_bea_datasets",
     "category": "Method",
-    "text": "get_bea_datasets(b)\n\n\nReturn, in a DataFrame, a list of IDs and descriptions for datasets accessible from the BEA data API.\n\nArguments\n\nb – a Bea connection\n\n\n\n"
+    "text": "get_bea_datasets(b::Bea)\n\nReturn, in a DataFrame, a list of IDs and descriptions for datasets accessible from the BEA data API.\n\nArguments\n\nb – a Bea connection\n\n\n\n"
 },
 
 {
@@ -141,7 +133,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.get_bea_parameterlist",
     "category": "Method",
-    "text": "get_bea_parameterlist(b, dataset)\n\n\nReturn, in a DataFrame, a list of parameters for dataset.\n\nArguments\n\nb – a Bea connection\ndataset – String indicating the dataset ID.\n\nReturns\n\nA DataFrame listing the following:\n\nParameter ID\nParmameter description\nrequired – 1 for yes, 0 for no\ndefault_value – empty if none\n\n\n\n"
+    "text": "get_bea_parameterlist(b::BeaData.Bea, dataset::String)\n\nReturn, in a DataFrame, a list of parameters for dataset.\n\nArguments\n\nb – a Bea connection\ndataset – String indicating the dataset ID.\n\nReturns\n\nA DataFrame listing the following:\n\nParameter ID\nParmameter description\nrequired – 1 for yes, 0 for no\ndefault_value – empty if none\n\n\n\n"
 },
 
 {
@@ -149,7 +141,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.get_nipa_table",
     "category": "Method",
-    "text": "get_nipa_table(b, TableID, frequency, startyear, endyear)\n\n\nRequest a NIPA table from the BEA data API and return an object of type BeaNipaTable.\n\nArguments\n\nb – a Bea connection\nTableID – the integer Table ID for the desired NIPA table\nfrequency – \"A\" for annual, \"Q\" for quarerly\nstartyear – first year of data requested, in YYYY format\nendyear – last year of data requested, in YYYY format\n\n\n\n"
+    "text": "get_nipa_table(b::Bea, TableID::Int, frequency::AbstractString, startyear::Int, endyear::Int)\n\nRequest a NIPA table from the BEA data API and return an object of type BeaNipaTable.\n\nArguments\n\nb – a Bea connection\nTableID – the integer Table ID for the desired NIPA table\nfrequency – \"A\" for annual, \"Q\" for quarerly\nstartyear – first year of data requested, in YYYY format\nendyear – last year of data requested, in YYYY format\n\n\n\n"
 },
 
 {
@@ -157,7 +149,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.nipa_metadata_tex",
     "category": "Method",
-    "text": "nipa_metadata_tex(b)\n\n\nWrite, to the current working directory, a .tex file with the parmater list for the NIPA dataset and parameter values for the TableID parameter.\n\nArguments\n\nb – a Bea connection\n\n\n\n"
+    "text": "nipa_metadata_tex(b::Bea)\n\nWrite, to the current working directory, a .tex file with the parmater list for the NIPA dataset and parameter values for the TableID parameter.\n\nArguments\n\nb – a Bea connection\n\n\n\n"
 },
 
 {
@@ -165,7 +157,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.table_metadata_tex",
     "category": "Method",
-    "text": "table_metadata_tex(bnt)\n\n\nWrite, to the current working directory, a .tex file with metadata (table name and description, line numbers and descriptions, and table notes) for the NIPA table contained in bnt.\n\nArguments\n\nbnt – a BeaNipaTable object\n\n\n\n"
+    "text": "table_metadata_tex(bnt::BeaNipaTable)\n\nWrite, to the current working directory, a .tex file with metadata (table name and description, line numbers and descriptions, and table notes) for the NIPA table contained in bnt.\n\nArguments\n\nbnt – a BeaNipaTable object\n\n\n\n"
 },
 
 {
@@ -173,7 +165,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Commands",
     "title": "BeaData.parse_data_dict",
     "category": "Method",
-    "text": "parse_data_dict(dict)\n\n\nExtract information for a single observation and return as a tuple.  (Internal method for get_nipa_table.)\n\n\n\n"
+    "text": "parse_data_dict(dict::Dict)\n\nExtract information for a single observation and return as a tuple.  (Internal method for get_nipa_table.)\n\n\n\n"
 },
 
 {
