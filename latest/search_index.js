@@ -93,7 +93,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Index",
     "title": "BeaData.BeaTable",
     "category": "Type",
-    "text": "type BeaTable\n\nA NIPA table with data and metadata returned from a get_nipa_table call.\n\nFields\n\ntablenum - NIPA table number\ntableid - API TableName\ntabledesc - The table title (e.g., 'Real Gross Domestic Product, Chained Dollars' for Table 1.1.6)\nlinedesc - OrderedDict of descriptions for each line of the table\ntablenotes - Table notes, if any\nfrequency\nstartyear\nendyear\ndf - DataFrame containing the data values from the table; column names are the line numbers from the table, the first column contains the date for each observation in Julia Date format\n\n\n\n"
+    "text": "type BeaTable\n\nA NIPA table with data and metadata returned from a get_nipa_table call.\n\nFields\n\ntablenum - NIPA table number\ntablename - API TableName\ntabledesc - The table title (e.g., 'Real Gross Domestic Product, Chained Dollars' for Table 1.1.6)\nlinedesc - OrderedDict of descriptions for each line of the table\ntablenotes - Table notes, if any\nfrequency\nstartyear\nendyear\ndf - DataFrame containing the data values from the table; column names are the line numbers from the table, the first column contains the date for each observation in Julia Date format\n\n\n\n"
 },
 
 {
@@ -121,35 +121,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "lib/public.html#BeaData.nipa_metadata_tex-Tuple{BeaData.Bea}",
-    "page": "Index",
-    "title": "BeaData.nipa_metadata_tex",
-    "category": "Method",
-    "text": "nipa_metadata_tex(b::Bea)\n\nWrite, to the current working directory, a .tex file with the parmater list for the NIPA dataset and parameter values for the TableID parameter.\n\nArguments\n\nb – a Bea connection\n\n\n\n"
-},
-
-{
-    "location": "lib/public.html#BeaData.table_metadata_tex-Tuple{BeaData.BeaTable}",
-    "page": "Index",
-    "title": "BeaData.table_metadata_tex",
-    "category": "Method",
-    "text": "table_metadata_tex(bnt::BeaNipaTable)\n\nWrite, to the current working directory, a .tex file with metadata (table name and description, line numbers and descriptions, and table notes) for the NIPA table contained in bnt.\n\nArguments\n\nbnt – a BeaTable object\n\n\n\n"
-},
-
-{
-    "location": "lib/public.html#BeaData.parse_data_dict-Tuple{Dict}",
-    "page": "Index",
-    "title": "BeaData.parse_data_dict",
-    "category": "Method",
-    "text": "parse_data_dict(dict::Dict)\n\nExtract information for a single observation and return as a tuple.  (Internal method for get_nipa_table.)\n\n\n\n"
-},
-
-{
     "location": "lib/public.html#Index-1",
     "page": "Index",
     "title": "Index",
     "category": "section",
-    "text": "Pages = [\"public.md\"]Modules = [BeaData]"
+    "text": "Pages = [\"public.md\"]Modules = [BeaData]\nPrivate = false"
 },
 
 ]}
