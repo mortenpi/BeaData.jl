@@ -85,7 +85,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Index",
     "title": "BeaData.Bea",
     "category": "Type",
-    "text": "type Bea\n\nA connection to the U.S. Bureau of Economic Analysis (BEA) Data API.\n\nConstructors\n\nBea()\nBea(key::AbstractString)\n\nArguments\n\nkey: Registration key provided by the BEA.\n\nA valid registration key is required to retrieve data from the BEA's API.  A key can be obtained by registering at the BEA website.\n\nA default API key can be specified in a ~/.beadatarc file.\n\nFields\n\nurl\nkey\n\n\n\n"
+    "text": "type Bea\n\nA connection to the U.S. Bureau of Economic Analysis (BEA) Data API.\n\nConstructors\n\nBea()\nBea(key::AbstractString)\n\nArguments\n\nkey: Registration key provided by the BEA.\n\nA valid registration key is required to retrieve data from the BEA\'s API.  A key can be obtained by registering at the BEA website.\n\nA default API key can be specified in a ~/.beadatarc file.\n\nFields\n\nurl\nkey\n\n\n\n"
 },
 
 {
@@ -93,7 +93,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Index",
     "title": "BeaData.BeaTable",
     "category": "Type",
-    "text": "type BeaTable\n\nA NIPA table with data and metadata returned from a get_nipa_table call.\n\nFields\n\ntablenum - NIPA table number\ntablename - API TableName\ntabledesc - The table title (e.g., 'Real Gross Domestic Product, Chained Dollars' for Table 1.1.6)\nlinedesc - OrderedDict of descriptions for each line of the table\ntablenotes - Table notes, if any\nfrequency\nstartyear\nendyear\ndf - DataFrame containing the data values from the table; column names are the line numbers from the table, the first column contains the date for each observation in Julia Date format\n\n\n\n"
+    "text": "type BeaTable\n\nA NIPA table with data and metadata returned from a get_nipa_table call.\n\nFields\n\ntablenum - NIPA table number\ntablename - API TableName\ntabledesc - The table title (e.g., \'Real Gross Domestic Product, Chained Dollars\' for Table 1.1.6)\nlinedesc - OrderedDict of descriptions for each line of the table\ntablenotes - Table notes, if any\nfrequency\nstartyear\nendyear\ndf - DataFrame containing the data values from the table; column names are the line numbers from the table, the first column contains the date for each observation in Julia Date format\n\n\n\n"
 },
 
 {
@@ -117,7 +117,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Index",
     "title": "BeaData.get_nipa_table",
     "category": "Method",
-    "text": "get_nipa_table(b::Bea, TableName::AbstractString, frequency::AbstractString, startyear::Int, endyear::Int)\n\nRequest a NIPA table from the BEA data API and return an object of type BeaNipaTable.\n\nArguments\n\nb – a Bea connection\nTableName – the Table Name (string) for the desired NIPA table\nfrequency – \"A\" for annual, \"Q\" for quarerly\nstartyear – first year of data requested, in YYYY format\nendyear – last year of data requested, in YYYY format\n\n\n\n"
+    "text": "get_nipa_table(b::Bea, TableName::AbstractString, frequency::AbstractString, startyear::Int, endyear::Int)\n\nRequest a NIPA table from the BEA data API and return an object of type BeaTable.\n\nArguments\n\nb – a Bea connection\nTableName – the Table Name (string) for the desired NIPA table\nfrequency – \"A\" for annual, \"Q\" for quarerly\nstartyear – first year of data requested, in YYYY format\nendyear – last year of data requested, in YYYY format\n\n\n\n"
 },
 
 {
